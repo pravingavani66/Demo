@@ -9,6 +9,8 @@ import { IProduct } from '../models/product.interface';
 export class ProductListComponent implements OnInit {
   title = "product-list";
   products: IProduct[];
+  showImages: boolean =false;
+
   constructor() { 
    this.products
    =[
@@ -98,5 +100,11 @@ trackByName(index: number, product: IProduct) {
     } else {
       return {};
     }
+  }
+  toggleImage(){
+    this.showImages = !this.showImages;
+  }
+  buyProduct(product: IProduct) {
+    console.log('Buying initiated for ' + product.productName);
   }
 }

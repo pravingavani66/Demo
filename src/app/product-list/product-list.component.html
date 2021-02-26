@@ -1,11 +1,12 @@
 <h1>{{title}}</h1>
 <hr>
 
-<button (click)='refreshData()'>Refresh Data</button>
+<button class="btn btn-primary mr-3" (click)='refreshData()'>Refresh Data</button>
+<button class="btn btn-secondary" (click)="toggleImage()">{{showImages ? 'Hide': 'Show'}} Images</button>
 <div class="row" *ngIf="products?.length; else noProducts">
     <div class="col-md-3" *ngFor="let product of products;let i= index;trackBy:trackByName">
       <div class="card">
-        <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+        <img class="card-img-top" *ngIf="showImages" [src]="product.imageUrl" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{i+1}}.{{product.productName}}</h5>
           <p class="card-text">{{product.description}}</p>
@@ -16,7 +17,7 @@
             <span *ngSwitchCase='product.price <= 100'>(Cheap)</span>
             <span *ngSwitchDefault>(Value4Money)</span>
           </p>
-          <a href="#" class="btn btn-primary" *ngIf="product.isActive; else discontinuedProduct">Buy</a>
+          <button class="btn btn-primary" [disabled]='!product.isActive' (click)="buyProduct(product)">Buy</button>
           <ng-template #discontinuedProduct>
             <p class="text-danger">This is discontinued</p>
           </ng-template>
