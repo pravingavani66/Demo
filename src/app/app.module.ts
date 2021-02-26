@@ -13,6 +13,6 @@ import { HelloComponent } from './hello/hello.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [HelloComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
