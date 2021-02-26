@@ -89,5 +89,14 @@ trackByName(index: number, product: IProduct) {
 }
   ngOnInit(): void {
   }
-
+  getProductStyles(products:IProduct){
+    if(products.price==200){
+      return {
+        color: 'red',
+        fontWeight: 'bolder',
+      };
+    } else {
+      return {};
+    }
+  }
 }
