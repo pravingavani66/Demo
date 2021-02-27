@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { FormsModule } from '@angular/forms';
+import { ifNullOrEmptyPipe } from './pipes/if-null-or-empty.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    ProductListComponent
+    ProductListComponent,
+    ifNullOrEmptyPipe
   ],
   imports: [
     BrowserModule,
