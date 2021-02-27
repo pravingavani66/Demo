@@ -110,8 +110,11 @@ trackByName(index: number, product: IProduct) {
     console.log('Buying initiated for ' + product.productName);
     console.log('Value of Search Text', this.searchText);
   }
-  filterData(){
-console.log('filtering data', this.searchText);
-this.products=this.allProducts.filter((item)=>item.productName.toLowerCase().includes( this.lowerCasePipe.transform(this.searchText)));
+  changeName() {
+    this.products[0].productName = 'Nexon';
   }
+//   filterData(){
+// console.log('filtering data', this.searchText);
+// this.products=this.allProducts.filter((item)=>item.productName.toLowerCase().includes( this.lowerCasePipe.transform(this.searchText)));
+//   }
 }

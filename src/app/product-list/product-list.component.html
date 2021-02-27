@@ -1,11 +1,12 @@
 <h1>{{title}}</h1>
 <hr>
-<input type="text" class="form-control" placeholder="Search products" [(ngModel)]="searchText" (keyup)="filterData()">
+<input type="text" class="form-control" placeholder="Search products" [(ngModel)]="searchText" >
 Search By : {{searchText}} <br>
-<button class="btn btn-primary mr-3" (click)='refreshData()'>Refresh Data</button>
-<button class="btn btn-secondary" (click)="toggleImage()">{{showImages ? 'Hide': 'Show'}} Images</button>
+<button class="btn btn-primary mr-3 mt-3" (click)='refreshData()'>Refresh Data</button>
+<button class="btn btn-secondary mr-3 mt-3" (click)="changeName()">Change Name</button>
+<button class="btn btn-secondary mr-3 mt-3" (click)="toggleImage()">{{showImages ? 'Hide': 'Show'}} Images</button>
 <div class="row" *ngIf="products?.length; else noProducts">
-    <div class="col-md-3" *ngFor="let product of products;let i= index;trackBy:trackByName">
+    <div class="col-md-3" *ngFor="let product of products | searchProductPipe:searchText ;let i= index;trackBy:trackByName">
       <div class="card">
         <img class="card-img-top" *ngIf="showImages" [src]="product.imageUrl" alt="Card image cap">
         <div class="card-body">
@@ -26,6 +27,7 @@ Search By : {{searchText}} <br>
       </div>
   </div>
 </div>
+{{products|json}}
 <ng-template #noProducts>
     <p class="text-danger">No Products available</p>
   </ng-template>

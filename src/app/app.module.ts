@@ -9,6 +9,7 @@ import { ifNullOrEmptyPipe } from './pipes/if-null-or-empty.pipe';
 import { customDatePipe } from './pipes/custom-date.pipe';
 import { CustomCheckNullOrEmptyPipe } from './pipes/custom-check-nuu-or-empty.pipe';
 import { LowerCasePipe } from '@angular/common';
+import { SearchProductPipe } from './pipes/search-product.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LowerCasePipe } from '@angular/common';
     ProductListComponent,
     ifNullOrEmptyPipe,
     customDatePipe,
-    CustomCheckNullOrEmptyPipe
+    CustomCheckNullOrEmptyPipe,
+    SearchProductPipe
   ],
   imports: [
     BrowserModule,
