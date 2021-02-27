@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ifNullOrEmptyPipe } from './pipes/if-null-or-empty.pipe';
 import { customDatePipe } from './pipes/custom-date.pipe';
 import { CustomCheckNullOrEmptyPipe } from './pipes/custom-check-nuu-or-empty.pipe';
+import { LowerCasePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CustomCheckNullOrEmptyPipe } from './pipes/custom-check-nuu-or-empty.pi
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LowerCasePipe],
   bootstrap: [ProductListComponent]
 })
 export class AppModule { }
