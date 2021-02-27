@@ -9,8 +9,9 @@ import { IProduct } from '../models/product.interface';
 export class ProductListComponent implements OnInit {
   title = "product-list";
   products: IProduct[];
+  allProducts:IProduct[];
   showImages: boolean =false;
-
+  searchText : string;
   constructor() { 
    this.products
    =[
@@ -46,7 +47,7 @@ export class ProductListComponent implements OnInit {
       isActive: false,
       imageUrl: 'https://via.placeholder.com/150?text=RX100',
     }];
-  // products: IProduct[] = null;
+    this.allProducts = [...this.products];
 }
 refreshData() {
   console.log('Refreshing !!');
@@ -106,5 +107,10 @@ trackByName(index: number, product: IProduct) {
   }
   buyProduct(product: IProduct) {
     console.log('Buying initiated for ' + product.productName);
+    console.log('Value of Search Text', this.searchText);
+  }
+  filterData(){
+console.log('filtering data', this.searchText);
+this.products=this.allProducts.filter((item)=>item.productName.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 }

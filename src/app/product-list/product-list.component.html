@@ -1,6 +1,7 @@
 <h1>{{title}}</h1>
 <hr>
-
+<input type="text" class="form-control" placeholder="Search products" [(ngModel)]="searchText" (keyup)="filterData()">
+Search By : {{searchText}} <br>
 <button class="btn btn-primary mr-3" (click)='refreshData()'>Refresh Data</button>
 <button class="btn btn-secondary" (click)="toggleImage()">{{showImages ? 'Hide': 'Show'}} Images</button>
 <div class="row" *ngIf="products?.length; else noProducts">
